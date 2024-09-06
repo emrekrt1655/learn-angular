@@ -13,6 +13,9 @@ import { DUMMY_USERS } from './dummy-users';
 })
 export class AppComponent {
   title = 'essentials';
+  onSelectUser(id: string) {
+    console.log( 'selected user ' + id );
+  }
   users = DUMMY_USERS.map((user) => {
     return { id: user.id, name: user.name, avatar: 'assets/users/'+user.avatar}
   } )
