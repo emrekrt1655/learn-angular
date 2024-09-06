@@ -1,4 +1,4 @@
-import { Component, computed, Input } from '@angular/core';
+import { Component, computed, input, Input } from '@angular/core';
 
 
 @Component({
@@ -9,8 +9,11 @@ import { Component, computed, Input } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({required: true}) name!: string;
-  @Input({required: true}) avatar!: string;
+  // @Input({required: true}) name!: string;
+  // @Input({required: true}) avatar!: string;
+
+  avatar = input.required<string>();
+  name = input.required<string>();
   
   
 
