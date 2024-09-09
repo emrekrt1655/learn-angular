@@ -6,7 +6,11 @@
     <li>
       <app-user [user]="user" (select)="onSelectUser($event)" />
     </li>
-  }
+    }
   </ul>
+  @if (selectedUser) {
   <app-tasks [name]="selectedUser.name" />
+  } @else {
+    <p> There is no selected user!  </p>
+  }
 </main>
