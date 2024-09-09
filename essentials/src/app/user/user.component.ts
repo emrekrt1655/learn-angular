@@ -6,6 +6,12 @@ import {
   output
 } from '@angular/core';
 
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -14,9 +20,10 @@ import {
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) name!: string;
-  @Input({ required: true }) avatar!: string;
+  // @Input({ required: true }) id!: string;
+  // @Input({ required: true }) name!: string;
+  // @Input({ required: true }) avatar!: string;
+  @Input() user!: User;
   @Output() select = new EventEmitter<string>();
   // select = output<string>();
 
@@ -30,6 +37,6 @@ export class UserComponent {
   //imagePath = computed(() => this.selectedUser().avatar )
 
   onSelect() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
   }
 }
