@@ -5,12 +5,9 @@ import {
   Output,
   output
 } from '@angular/core';
+import { User } from '../types';
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
+
 
 @Component({
   selector: 'app-user',
