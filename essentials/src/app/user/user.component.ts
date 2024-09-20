@@ -5,7 +5,7 @@ import {
   Output,
   output
 } from '@angular/core';
-import { User } from '../types';
+import { type User } from './user.model';
 
 
 
@@ -21,6 +21,7 @@ export class UserComponent {
   // @Input({ required: true }) name!: string;
   // @Input({ required: true }) avatar!: string;
   @Input() user!: User;
+  @Input() selected!: boolean;
   @Output() select = new EventEmitter<string>();
   // select = output<string>();
 

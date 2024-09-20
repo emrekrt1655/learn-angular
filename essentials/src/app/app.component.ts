@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
@@ -21,7 +21,6 @@ export class AppComponent {
       avatar: 'assets/users/' + user.avatar,
     };
   });
-
   selectedUserId?: string;
 
   get selectedUser() {
