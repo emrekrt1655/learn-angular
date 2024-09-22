@@ -1,0 +1,15 @@
+<article>
+  <h2 [class.completed]="todo.isCompleted" >{{ todo.title }}</h2>
+  <time [class.completed]="todo.isCompleted" > {{ todo.dueDate }} </time>
+  <time [class.completed]="todo.isCompleted" > {{ todo.userId }} </time>
+  <p [class.completed]="todo.isCompleted" >{{ todo.desc }}</p>
+  <p class="actions">
+    <button (click)="onCompleteTodo()">
+      @if(todo.isCompleted) {
+
+      <span>UnComplete</span>
+      } @else { <span>Complete</span>
+      }
+    </button>
+  </p>
+</article>

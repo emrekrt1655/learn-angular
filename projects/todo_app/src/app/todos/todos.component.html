@@ -1,0 +1,18 @@
+<section id="todos">
+  <header>
+    <h2>Todo List</h2>
+    <menu>
+        <button>Add Task</button>
+      </menu>
+  </header>
+  
+  <ul>
+    @if (todos.length>0) { @for (todo of todos; track todo.id) {
+    <li>
+      <app-todo [todo]="todo" (complete)="onCompleteTodo($event)" />
+    </li>
+    } } @else {
+    <p>There is no tasks for this user!</p>
+    }
+  </ul>
+</section>
