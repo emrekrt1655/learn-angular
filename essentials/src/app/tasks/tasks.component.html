@@ -1,6 +1,6 @@
 <app-card>
 @if (isAddingTask) {
-  <app-new-task (close)="onCancelAddTask()" (add)="onAddTask($event)" />
+  <app-new-task [userId]="user.id" (close)="onCancelAddTask()"/>
 }
 
 <section id="tasks">
@@ -14,7 +14,7 @@
     @if (selectedUserTasks.length>0) { @for (task of selectedUserTasks; track
     task.id) {
     <li>
-      <app-task [task]="task" (complete)="onCompleteTask($event)" />
+      <app-task [task]="task" />
     </li>
     } } @else {
     <p>There is no tasks for this user!</p>
