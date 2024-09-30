@@ -1,35 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService, User } from './user.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { UserService, type User } from '../user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from '../../shared/card/card.component';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })
-export class UserComponent implements OnInit {
-  users: User[] = [];
+export class UserComponent {
   selectedUser?: User;
+  @Input() user!: User;
+  @Input() selected!: boolean;
+  @Output() select = new EventEmitter<number>();
 
   constructor(private userService: UserService) {}
-
-  ngOnInit(): void {
-    this.loadUsers();
-  }
-
-  loadUsers(): void {
-    this.userService.getUsers().subscribe({
-      next: (users) => {
-        console.log(users)
-        this.users = users;
-      },
-      error: (err) => {
-        console.error('Error fetching users', err);
-      },
-    });
-  }
 
   getUser(id: number): void {
     this.userService.getUser(id).subscribe({
@@ -42,4 +29,7 @@ export class UserComponent implements OnInit {
     });
   }
 
+  onSelect() {
+    this.select.emit(this.user.id);
+  }
 }
