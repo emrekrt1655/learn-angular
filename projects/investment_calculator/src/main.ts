@@ -1,5 +1,4 @@
-import { bootstrapApplication } from '@angular/platform-browser';
+import { platformBrowserDynamicTesting } from "@angular/platform-browser-dynamic/testing";
+import { AppModule } from "./app/app.module";
 
-import { AppComponent } from './app/app.component';
-
-bootstrapApplication(AppComponent).catch((err) => console.error(err));
+platformBrowserDynamicTesting().bootstrapModule(AppModule);
