@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Data } from '../investment-input.model';
+import type { Data } from '../investment-input.model';
 
 @Component({
   selector: 'app-user-input',
